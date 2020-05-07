@@ -50,11 +50,11 @@ Add an entry to fstab to mount the bucket:
 echo s3fs#<s3-bucket> /mnt/<test-bucket> fuse _netdev,rw,nosuid,nodev,allow_other,nonempty 0 0 >> /etc/fstab  
 (Replace the leading <s3-bucket> with your AWS s3 bucket name and the /mnt/<test-bucket> with the mount point which you have created)
 
-Remount all mount points, which now include our new s3 bucket:
+Remount all mount points, which now include our new s3 bucket:  
 mount -a
 
 ## 5. Verify that S3 Bucket is mounted to linux file system
-df -h
+df -h  
 Through this command output, you can see s3fs under Filesystem, mounted on your specified mountpoint.
 
 # Standalone RC4 Installation Instructions
