@@ -57,7 +57,7 @@ mount -a
 df -h
 Through this command output, you can see s3fs under Filesystem, mounted on your specified mountpoint.
 
-#Standalone RC4 Installation Instructions
+# Standalone RC4 Installation Instructions
 
 ## 1. Compile rc4.c
 To compile rc4.c, you need to include the directory of the libcrypto library. One such compilation example:  
