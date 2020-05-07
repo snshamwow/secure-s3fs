@@ -1,8 +1,8 @@
-#Secure-S3FS Installation Instructions:
+##Secure-S3FS Installation Instructions:
 
 ## 1. Installing S3FS-Secure:
 
-First, download S3FS-Secure from https://github.com/tylerlafrance/secure-s3fs/ either through browser or through command:
+First, download S3FS-Secure from https://github.com/tylerlafrance/secure-s3fs/ either through browser or through command:  
 git clone https://github.com/tylerlafrance/secure-s3fs.git
 
 Ensure your system satisfies build and runtime dependencies for:
@@ -20,7 +20,7 @@ Ensure your system satisfies build and runtime dependencies for:
     * Alternatively, you can set mime.types file path with `mime` option without detecting these default files
 * pkg-config (or your OS equivalent)
 
-This can be done with the following command:
+This can be done with the following command:  
 sudo apt-get install build-essential libcurl4-openssl-dev libxml2-dev mime-support
 
 Open s3fs-secure/src/fdcache.cpp to edit the source code.
@@ -28,11 +28,11 @@ To set the encryption key location, edit line 80 to the proper file location.
 Similarly, edit line 81 to change the location of the temporary storage file.
 Last, to change your backup key, edit line 130's "gj5416" to your own backup key and change line 128 to the number of characters in your backup key.
 
-Next, navigate to your s3fs-secure folder and execute the following terminal commands:
-./autogen.sh
-./configure
-make
-sudo make install
+Next, navigate to your s3fs-secure folder and execute the following terminal commands:  
+./autogen.sh  
+./configure  
+make  
+sudo make install  
 
 ## 2. Connecting s3fs to Amazon AWS Account:
 In terminal, execute the following commands:
