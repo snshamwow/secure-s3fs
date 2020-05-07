@@ -1,4 +1,4 @@
-##Secure-S3FS Installation Instructions:
+# Secure-S3FS Installation Instructions:
 
 ## 1. Installing S3FS-Secure:
 
@@ -23,9 +23,9 @@ Ensure your system satisfies build and runtime dependencies for:
 This can be done with the following command:  
 sudo apt-get install build-essential libcurl4-openssl-dev libxml2-dev mime-support
 
-Open s3fs-secure/src/fdcache.cpp to edit the source code.
-To set the encryption key location, edit line 80 to the proper file location.
-Similarly, edit line 81 to change the location of the temporary storage file.
+Open s3fs-secure/src/fdcache.cpp to edit the source code.  
+To set the encryption key location, edit line 80 to the proper file location.  
+Similarly, edit line 81 to change the location of the temporary storage file.  
 Last, to change your backup key, edit line 130's "gj5416" to your own backup key and change line 128 to the number of characters in your backup key.
 
 Next, navigate to your s3fs-secure folder and execute the following terminal commands:  
@@ -35,19 +35,19 @@ make
 sudo make install  
 
 ## 2. Connecting s3fs to Amazon AWS Account:
-In terminal, execute the following commands:
-echo <access-key-id>:<secret-access-key> > /etc/passwd-s3fs
-chmod 600 /etc/passwd-s3fs
+In terminal, execute the following commands:  
+echo <access-key-id>:<secret-access-key> > /etc/passwd-s3fs  
+chmod 600 /etc/passwd-s3fs  
 (Replace <access-key-id> and <secret-access-key> with the actual IAM user keys)
 
 ## 3. Create local mounting point
 sudo mkdir /path/to/mountpoint
 
 ## 4. Mounting to local file system
-login with root user:
-sudo su
-Add an entry to fstab to mount the bucket:
-echo s3fs#<s3-bucket> /mnt/<test-bucket> fuse _netdev,rw,nosuid,nodev,allow_other,nonempty 0 0 >> /etc/fstab
+login with root user:  
+sudo su  
+Add an entry to fstab to mount the bucket:  
+echo s3fs#<s3-bucket> /mnt/<test-bucket> fuse _netdev,rw,nosuid,nodev,allow_other,nonempty 0 0 >> /etc/fstab  
 (Replace the leading <s3-bucket> with your AWS s3 bucket name and the /mnt/<test-bucket> with the mount point which you have created)
 
 Remount all mount points, which now include our new s3 bucket:
@@ -60,9 +60,9 @@ Through this command output, you can see s3fs under Filesystem, mounted on your 
 #Standalone RC4 Installation Instructions
 
 ## 1. Compile rc4.c
-To compile rc4.c, you need to include the directory of the libcrypto library. One such compilation example:
+To compile rc4.c, you need to include the directory of the libcrypto library. One such compilation example:  
 gcc -I/path/to/openssl/include/openssl -lcrypto -o rc4 rc4.c
 
 ## 2. Execute rc4.c
-To execute:
+To execute:  
 ./exe [-e/-d] [-salt/-nosalt] [key] [input] [output]
